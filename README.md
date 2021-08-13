@@ -1,4 +1,4 @@
-# I.R. donation
+# I.R. Donation
 
 ## 💻 Sobre o projeto
 Criar um projeto que atenda aos objetivos da *ONU* com as seguintes tecnologias:
