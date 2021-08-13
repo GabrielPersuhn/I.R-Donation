@@ -1,4 +1,4 @@
-package br.com.letscode.java.projetocalculoimpostogratis.contador;
+package br.com.letscode.java.irdonation.contador;
 
 public class Contador {
 }
