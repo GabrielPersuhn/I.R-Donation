@@ -14,10 +14,6 @@ public class Ong {
 
     @Id
     @Column
-    @GeneratedValue
-    private UUID id;
-
-    @Column
     private String cnpj;
 
     @Column

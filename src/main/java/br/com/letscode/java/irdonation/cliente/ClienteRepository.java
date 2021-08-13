@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     Optional<Cliente> findUsuarioByCpf(String cpf);
 
