@@ -12,24 +12,31 @@ public class IRDonation {
     }
 
 }
+//TODO está aparecendo o mesmo que acontece no do Jessé. precisamos ver como resolver isso e como criar e
+// autenticar um admin, se tiver alguma ideia e quiser fazer so dale
 
 /* funções:
-USUARIO
-POST inserir usuario
-GET listar todos
-PUT alterar informações do usuário (se a gente considerar autenticação)
+//TODO USUARIO
+//TODO POST inserir usuario
+//TODO GET listar todos
+//TODO PUT alterar informações do usuário (se a gente considerar autenticação)
+//TODO DELETE
 
 CONTADOR
-POST inserir contador
-GET listar todos
-PUT alterar informações do contador (se a gente considerar autenticação)
+//TODO POST inserir contador
+//TODO GET listar todos
+//TODO PUT alterar informações do contador (se a gente considerar autenticação)
+//TODO DELETE
 
 CONTADOR/USUARIO -> ATENDIMENTO
-GET listar usuário a ser atendido (fila)
+//TODO GET listar usuário a ser atendido (fila)
+//TODO DELETE
 
 ONG
-GET listar todos
-POST inserir ONG's (somente admin)
+listar todos
+//TODO POST inserir ONG's (somente admin)
+//TODO PUT alterar informações das ongs
+//TODO DELETE
 
 
  */

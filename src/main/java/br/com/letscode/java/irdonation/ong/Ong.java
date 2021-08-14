@@ -14,7 +14,7 @@ public class Ong {
 
     @Id
     @Column
-    private String cnpj;
+    private Long cnpj;
 
     @Column
     private String email;
