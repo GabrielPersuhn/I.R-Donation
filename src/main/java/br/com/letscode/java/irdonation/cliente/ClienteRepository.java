@@ -9,7 +9,4 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    Optional<Cliente> findUsuarioByCpf(String cpf);
-
-    List<Cliente> findUsuarioByCpfNotIn(List<String> IdLista);
 }

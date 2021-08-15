@@ -15,8 +15,12 @@ public class ClienteService {
         return this.repository.findAll();
     }
 
-    public Cliente newCliente(Cliente cliente) {
-        return this.repository.save(cliente);
+    public void cadastrarCliente(Cliente cliente) {
+        this.repository.save(cliente);
+    }
+
+    public void deleteByCpf(Long cpf) {
+        this.repository.deleteById(cpf);
     }
 
 }
