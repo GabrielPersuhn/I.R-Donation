@@ -3,8 +3,9 @@ package br.com.letscode.java.irdonation.cliente;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Queue;
 
 @RequiredArgsConstructor
 @Service
@@ -12,14 +13,14 @@ public class ClienteService {
 
     private final ClienteRepository repository;
 
-    public List<Cliente> listall() {
-        return this.repository.findAll();
+    public Queue<Cliente> listall() {
+        List<Cliente> yourList = this.repository.findAll();
+        return new LinkedList<>(yourList);
     }
 
-    public List<Cliente> listNaoAtendidos() {
-        return this.repository.findAll().stream().
-                filter(Cliente::getFoiAtendido) // TODO teste de método
-                .collect(Collectors.toList());
+    public Queue<Cliente> listNaoAtendidos() {
+        List<Cliente> yourList = this.repository.findAll();
+        return new LinkedList<Cliente>(yourList);
     }
 
     public void cadastrarCliente(Cliente cliente) {

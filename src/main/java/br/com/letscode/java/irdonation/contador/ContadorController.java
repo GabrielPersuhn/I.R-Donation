@@ -19,13 +19,20 @@ public class ContadorController {
     private final ClienteService clienteService;
 
     @GetMapping("/listarContadores")
-    public List<Contador> list() {
-        return this.service.listAll();
+    public ResponseEntity<?> list() {
+        try {
+            return (ResponseEntity<?>) this.service.listAll();
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.NOT_FOUND);
+        }
+
     }
 
-    @GetMapping("/clientesParaAtendimento") // TODO Procura por clientes já atendidos (transformar em FILA)
-    public List<Cliente> listClientes() {
-        return this.clienteService.listNaoAtendidos();
+    @GetMapping("/atendimento") // TODO Procura por clientes ainda não atendidos (transformar em FILA)
+    public Cliente listClientes() {
+        this.clienteService.listall().poll();
+        return this.clienteService.listall().remove();
     }
 
     @PostMapping("/cadastrar")

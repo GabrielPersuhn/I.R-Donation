@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class ContadorService {
 
-    private ContadorRepository repository;
+    private final ContadorRepository repository;
 
     public List<Contador> listAll() {
         return this.repository.findAll();
