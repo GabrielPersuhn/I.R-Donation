@@ -1,5 +1,6 @@
 package br.com.letscode.java.irdonation.cliente;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Cliente {
     @Column
     private String sobrenome;
 
+    @JsonIgnore
     @Column
     private Boolean foiAtendido;
 }
