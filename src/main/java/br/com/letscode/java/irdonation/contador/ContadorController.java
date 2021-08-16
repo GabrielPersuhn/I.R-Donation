@@ -1,5 +1,7 @@
 package br.com.letscode.java.irdonation.contador;
 
+import br.com.letscode.java.irdonation.cliente.Cliente;
+import br.com.letscode.java.irdonation.cliente.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +13,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/contador")
 public class ContadorController {
+
     private final ContadorService service;
 
-    @GetMapping("/listarTodos")
+    private final ClienteService clienteService;
+
+    @GetMapping("/listarContadores")
     public List<Contador> list() {
         return this.service.listAll();
+    }
+
+    @GetMapping("/clientesParaAtendimento") // TODO Procura por clientes já atendidos (transformar em FILA)
+    public List<Cliente> listClientes() {
+        return this.clienteService.listNaoAtendidos();
     }
 
     @PostMapping("/cadastrar")

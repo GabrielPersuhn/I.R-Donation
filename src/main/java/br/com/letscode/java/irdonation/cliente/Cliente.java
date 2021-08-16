@@ -27,4 +27,7 @@ public class Cliente {
 
     @Column
     private String sobrenome;
+
+    @Column
+    private Boolean foiAtendido;
 }
