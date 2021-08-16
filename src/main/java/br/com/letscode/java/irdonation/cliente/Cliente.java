@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 
 @Data
-@Table(name = "usuario")
+@Table(name = "cliente")
 public class Cliente {
 
     @Id
@@ -27,4 +27,7 @@ public class Cliente {
 
     @Column
     private String sobrenome;
+
+    @Column
+    private Boolean foiAtendido;
 }

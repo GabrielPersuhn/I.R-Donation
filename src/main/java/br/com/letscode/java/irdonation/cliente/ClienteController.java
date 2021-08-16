@@ -1,14 +1,9 @@
 package br.com.letscode.java.irdonation.cliente;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,11 +20,22 @@ public class ClienteController {
         return this.service.listall();
     }
 
-    @PostMapping("/novo")
-    public Cliente criarcliente(@RequestBody Cliente cliente) {
-        return this.service.newCliente(cliente);
+    @PostMapping("/cadastrar")
+    public ResponseEntity<Cliente> criarcliente(@RequestBody Cliente cliente) {
+        this.service.cadastrarCliente(cliente);
+        return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/{cpf}")
+    public ResponseEntity<?> remover(@PathVariable Long cpf){
+        try {
+            service.deleteByCpf(cpf);
+            return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.NOT_FOUND);
+        }
+    }
 
 //    @PutMapping("/{id}")
 //    public Cliente alterarInformacoes(@PathVariable Long id, @RequestBody String imdbId, Authentication auth)    {
