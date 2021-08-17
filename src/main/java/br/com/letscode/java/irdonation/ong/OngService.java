@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class OngService {
 
-    private OngRepository repository;
+    private final OngRepository repository;
 
     public List<Ong> listAll() {
         return this.repository.findAll();
