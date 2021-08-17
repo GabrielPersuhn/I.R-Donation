@@ -17,7 +17,7 @@ public class ClienteController {
 
     @GetMapping("/listarClientes")
     public ResponseEntity<?> listallClientes() {
-        System.out.println("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
+        System.out.println("A seguir listamos todos os clientes disponíveis na nossa plataforma. " +
                 "Logo, um desses voluntários entrará em contato :) ");
         this.clienteService.listall();
         return ResponseEntity.ok().build();
