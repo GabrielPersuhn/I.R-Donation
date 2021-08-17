@@ -1,12 +1,12 @@
 # I.R. Donation
 
 ## 💻 Sobre o projeto
-Criar um projeto que atenda aos objetivos da *ONU* com as seguintes tecnologias:
+Criar um projeto que atenda a um dos objetivos da *ONU*, utilizando as seguintes tecnologias:
 - Java 11
 - Maven
 - Lombok
 - Spring Web MVC e Boot
-- Banco de dados (utilizado neste projeto o h2)
+- Banco de dados (utilizado o h2)
 
 *(Esse projeto foi inspirado na ideia de outro já existente, sendo adaptado para 
 nossos requisitos e apenas para fim de educação e estudo. Segue link do projeto:

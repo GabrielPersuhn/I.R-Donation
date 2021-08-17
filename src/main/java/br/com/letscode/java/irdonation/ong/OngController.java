@@ -16,8 +16,9 @@ public class OngController {
     private final OngService ongService;
 
     @GetMapping("/listarTodos")
-    public List<Ong> listarTodos() {
-        return ongService.listAll();
+    public ResponseEntity<Ong> listarTodos() {
+        ongService.listAll();
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/cadastrar")
@@ -37,8 +38,4 @@ public class OngController {
         }
     }
 
-    //@PutMapping("/{id}")
-//    public Ong alterarInformacoes(@PathVariable Long id, @RequestBody String imdbId, Authentication auth)    {
-//        return this.service.answer(id, imdbId, auth.getName());
-//    }
 }

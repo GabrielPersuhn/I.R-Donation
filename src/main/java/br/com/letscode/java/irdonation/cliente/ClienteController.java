@@ -1,15 +1,10 @@
 package br.com.letscode.java.irdonation.cliente;
 
-import br.com.letscode.java.irdonation.contador.Contador;
 import br.com.letscode.java.irdonation.contador.ContadorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Queue;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,16 +15,24 @@ public class ClienteController {
 
     private final ClienteService clienteService;
 
-    @GetMapping("/listarContadores")
-    public List<Contador> list() {
-
+    @GetMapping("/listarClientes")
+    public ResponseEntity<?> listallClientes() {
         System.out.println("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
                 "Logo, um desses voluntários entrará em contato :) ");
-        return this.contadorService.listAll();
+        this.clienteService.listall();
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/listarContadores")
+    public ResponseEntity<?> listallContadores() {
+        System.out.println("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
+                "Logo, um desses voluntários entrará em contato :) ");
+        this.contadorService.listAll();
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Cliente> criarcliente(@RequestBody Cliente cliente) {
+    public ResponseEntity<?> criarCliente(@RequestBody Cliente cliente) {
         this.clienteService.cadastrarCliente(cliente);
         return ResponseEntity.ok().build();
     }
@@ -44,11 +47,6 @@ public class ClienteController {
             return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.NOT_FOUND);
         }
     }
-
-//    @PutMapping("/{id}")
-//    public Cliente alterarInformacoes(@PathVariable Long id, @RequestBody String imdbId, Authentication auth)    {
-//        return this.service.answer(id, imdbId, auth.getName());
-//    }
 
 }
 

@@ -3,6 +3,7 @@ package br.com.letscode.java.irdonation.cliente;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -15,12 +16,7 @@ public class ClienteService {
 
     public Queue<Cliente> listall() {
         List<Cliente> yourList = this.repository.findAll();
-        return new LinkedList<>(yourList);
-    }
-
-    public Queue<Cliente> listNaoAtendidos() {
-        List<Cliente> yourList = this.repository.findAll();
-        return new LinkedList<Cliente>(yourList);
+        return new ArrayDeque<>(yourList);
     }
 
     public void cadastrarCliente(Cliente cliente) {

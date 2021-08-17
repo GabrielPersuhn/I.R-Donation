@@ -1,13 +1,10 @@
 package br.com.letscode.java.irdonation.contador;
 
-import br.com.letscode.java.irdonation.cliente.Cliente;
 import br.com.letscode.java.irdonation.cliente.ClienteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -26,13 +23,17 @@ public class ContadorController {
         catch (Exception e) {
             return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.NOT_FOUND);
         }
-
     }
 
-    @GetMapping("/atendimento") // TODO Procura por clientes ainda não atendidos (transformar em FILA)
-    public Cliente listClientes() {
-        this.clienteService.listall().poll();
-        return this.clienteService.listall().remove();
+    @GetMapping("/atendimento")
+    public ResponseEntity<?> listClientes()  {
+        try {
+            return new ResponseEntity<>(this.clienteService.listall().poll() +
+                    " ainda não foi atendido", HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("Não há clientes cadastrados", HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/cadastrar")
@@ -52,8 +53,4 @@ public class ContadorController {
         }
     }
 
-//    @PutMapping("/{id}")
-//    public Cliente alterarInformacoes(@PathVariable Long id, @RequestBody String imdbId, Authentication auth)    {
-//        return this.service.answer(id, imdbId, auth.getName());
-//    }
 }
