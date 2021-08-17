@@ -18,13 +18,13 @@ public class IRDonation {
 /* funções:
 //TODO USUARIO
 //TODO POST inserir usuario
-//TODO GET listar todos
+//TODO GET listar todos contadores
 //TODO PUT alterar informações do usuário (se a gente considerar autenticação)
 //TODO DELETE
 
 CONTADOR
 //TODO POST inserir contador
-//TODO GET listar todos
+//TODO GET listar todos usuários informados
 //TODO PUT alterar informações do contador (se a gente considerar autenticação)
 //TODO DELETE
 
