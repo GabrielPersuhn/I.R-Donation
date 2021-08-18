@@ -44,7 +44,7 @@ public class ClienteController {
             return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("CPF " + id + " não encontrado", HttpStatus.NOT_FOUND);
         }
     }
 

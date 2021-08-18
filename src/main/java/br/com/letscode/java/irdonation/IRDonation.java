@@ -13,9 +13,6 @@ public class IRDonation {
 
 }
 
-//TODO está aparecendo o mesmo que acontece no do Jessé. precisamos ver como resolver isso e como criar e
-// autenticar um admin, se tiver alguma ideia e quiser fazer so dale
-
 /* funções:
 //TODO USUARIO
 //TODO POST inserir usuario

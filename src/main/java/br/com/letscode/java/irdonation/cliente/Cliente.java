@@ -15,6 +15,11 @@ public class Cliente {
 
     @Id
     @Column
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
+
+    @Column
     private Long cpf;
 
     @Column

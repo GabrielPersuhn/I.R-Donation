@@ -24,8 +24,8 @@ public class ClienteService {
         this.repository.save(cliente);
     }
 
-    public void deleteByCpf(Long cpf) {
-        this.repository.deleteById(cpf);
+    public void deleteById(Integer id) {
+        this.repository.deleteById(id);
     }
 
 }
