@@ -1,15 +1,15 @@
 package br.com.letscode.java.irdonation.cliente;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
-@Data
+@Getter @Setter
+@ToString
 @Table(name = "cliente")
 public class Cliente {
 
@@ -34,7 +34,4 @@ public class Cliente {
     @Column
     private String sobrenome;
 
-    @JsonIgnore
-    @Column
-    private Boolean foiAtendido;
 }

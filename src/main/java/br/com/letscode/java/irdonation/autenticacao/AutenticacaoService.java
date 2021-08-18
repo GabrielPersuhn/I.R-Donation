@@ -1,4 +1,4 @@
-package br.com.letscode.java.irdonation.autenticacao;
+/*package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,3 +19,4 @@ public class AutenticacaoService implements UserDetailsService {
     }
 
 }
+*/

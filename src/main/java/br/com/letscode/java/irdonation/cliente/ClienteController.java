@@ -17,31 +17,33 @@ public class ClienteController {
 
     @GetMapping("/listarClientes")
     public ResponseEntity<?> listallClientes() {
-        System.out.println("A seguir listamos todos os clientes disponíveis na nossa plataforma. " +
-                "Logo, um desses voluntários entrará em contato :) ");
-        this.clienteService.listall();
-        return ResponseEntity.ok().build();
+        var clientes = this.clienteService.listAll();
+        return new ResponseEntity<>(ClienteResponse.convert(clientes), HttpStatus.OK);
     }
 
     @GetMapping("/listarContadores")
     public ResponseEntity<?> listallContadores() {
-        System.out.println("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
-                "Logo, um desses voluntários entrará em contato :) ");
-        this.contadorService.listAll();
-        return ResponseEntity.ok().build();
+        try {
+            return new ResponseEntity<>("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
+                    "Logo, um desses voluntários entrará em contato. \n" + this.contadorService.listAll(), HttpStatus.OK );
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.OK);
+        }
     }
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarCliente(@RequestBody Cliente cliente) {
         this.clienteService.cadastrarCliente(cliente);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(cliente + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> remover(@PathVariable Long cpf){
+    //TODO arrumar parametro para delete
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Integer id){
         try {
-            clienteService.deleteByCpf(cpf);
-            return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
+            clienteService.deleteById(id);
+            return new ResponseEntity<>("CPF " + id + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>("CPF " + id + " não encontrado", HttpStatus.NOT_FOUND);

@@ -1,4 +1,4 @@
-package br.com.letscode.java.irdonation.autenticacao;
+/*package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Perfil implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Integer id;
 
     private String name;
 
@@ -24,3 +24,4 @@ public class Perfil implements GrantedAuthority {
         return this.name;
     }
 }
+*/

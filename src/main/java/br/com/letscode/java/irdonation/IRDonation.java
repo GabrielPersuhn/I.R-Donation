@@ -13,30 +13,16 @@ public class IRDonation {
 
 }
 
-/* funções:
-//TODO USUARIO
-//TODO POST inserir usuario
-//TODO GET listar todos contadores
-//TODO PUT alterar informações do usuário (se a gente considerar autenticação)
-//TODO DELETE
-
-CONTADOR
-//TODO POST inserir contador
-//TODO GET listar todos usuários informados
-//TODO PUT alterar informações do contador (se a gente considerar autenticação)
-//TODO DELETE
+/*
 
 CONTADOR/USUARIO -> ATENDIMENTO
 //TODO GET listar usuário a ser atendido (fila)
-//TODO DELETE
 
-ONG
-listar todos
-//TODO POST inserir ONG's (somente admin)
-//TODO PUT alterar informações das ongs
-//TODO DELETE
+//TODO segurança
 
-//TODO padronizar controller -> "Service / repository"
+//TODO verificar todo o codigo
+
+//TODO request e response
  */
 
 

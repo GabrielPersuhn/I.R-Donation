@@ -1,4 +1,4 @@
-package br.com.letscode.java.irdonation.autenticacao;
+/*package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Integer id;
 
     @Column(unique = true) // nao permite dois usuarios com mesmo email
     private String email;
@@ -61,3 +61,5 @@ public class User implements UserDetails {
         return true;
     }
 }
+
+ */

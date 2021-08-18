@@ -1,4 +1,4 @@
-package br.com.letscode.java.irdonation.config;
+/*package br.com.letscode.java.irdonation.config;
 
 import br.com.letscode.java.irdonation.autenticacao.AutenticacaoService;
 import lombok.RequiredArgsConstructor;
@@ -39,17 +39,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic();
     }
 
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .passwordEncoder(passwordEncoder())
+//                .withUser("bruno").password("1234@").roles("USER")
+//                .and().withUser("Gabriel").password("");
+//    }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("bruno").password("1234@").roles("USER")
-                .and().withUser("Gabriel").password("");
+        auth.userDetailsService(autenticacaoService)
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
-
-    //public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    //    auth.userDetailsService(autenticacaoService)
-    //            .passwordEncoder(new BCryptPasswordEncoder());
-    //}
 
     @Bean // faz a criptografia da senha
     public PasswordEncoder passwordEncoder() {
@@ -63,4 +65,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //
 //    }
 }
-//TODO está aparecendo o mesmo que acontece no do Jessé. precisamos ver como resolver isso e como criar e autenticar um admin, se tiver alguma ideia e quiser fazer so dale
+//TODO inseri o password encoder que estava faltando no metodo configure global
+*/
