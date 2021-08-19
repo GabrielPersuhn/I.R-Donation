@@ -1,9 +1,10 @@
-/*package br.com.letscode.java.irdonation.autenticacao.token;
+/* package br.com.letscode.java.irdonation.autenticacao.token;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class TokenService {
+
     @Value("${config.token.secret}")
     private String secret;
 
