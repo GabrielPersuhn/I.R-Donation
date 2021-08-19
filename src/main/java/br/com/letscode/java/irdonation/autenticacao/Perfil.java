@@ -1,4 +1,4 @@
-/*package br.com.letscode.java.irdonation.autenticacao;
+/* package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +23,5 @@ public class Perfil implements GrantedAuthority {
     public String getAuthority() {
         return this.name;
     }
-}
-*/
+} */
+

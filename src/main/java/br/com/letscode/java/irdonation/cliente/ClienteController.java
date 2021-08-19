@@ -51,16 +51,5 @@ public class ClienteController {
         }
     }
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<?> removerId(@PathVariable Integer id){
-//        try {
-//            clienteService.deleteById(id);
-//            return new ResponseEntity<>("Cliente " + id + " removido com sucesso", HttpStatus.OK);
-//        }
-//        catch (Exception e) {
-//            return new ResponseEntity<>("Cliente " + id + " não encontrado", HttpStatus.OK);
-//        }
-//    }
-
 }
 

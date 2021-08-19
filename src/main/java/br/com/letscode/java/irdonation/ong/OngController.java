@@ -41,15 +41,4 @@ public class OngController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> removerId(@PathVariable Integer id){
-        try {
-            ongService.deleteById(id);
-            return new ResponseEntity<>("Ong " + id + " removida com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>("Ong " + id + " não encontrado", HttpStatus.OK);
-        }
-    }
-
 }

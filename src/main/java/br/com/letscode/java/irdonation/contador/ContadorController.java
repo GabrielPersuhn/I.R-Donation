@@ -56,15 +56,4 @@ public class ContadorController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> removerId(@PathVariable Integer id){
-        try {
-            this.contadorService.deleteById(id);
-            return new ResponseEntity<>("Contador " + id + " removido com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>("Contador " + id + " não encontrado", HttpStatus.OK);
-        }
-    }
-
 }

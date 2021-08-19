@@ -1,4 +1,4 @@
-/*package br.com.letscode.java.irdonation.autenticacao;
+/* package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -60,6 +60,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-}
 
- */
+} */
+
+

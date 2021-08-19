@@ -1,4 +1,4 @@
-/*package br.com.letscode.java.irdonation.autenticacao;
+/* package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -42,6 +42,6 @@ public class UserController {
         }
     }
 
-}
+} */
 
- */
+
