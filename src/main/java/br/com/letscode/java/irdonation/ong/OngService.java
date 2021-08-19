@@ -20,7 +20,7 @@ public class OngService {
     }
 
     public void deleteByCnpj(Long cnpj) {
-        this.repository.deleteById(cnpj);
+        this.repository.deleteOngByCnpj(cnpj);
     }
 
 }

@@ -1,13 +1,9 @@
 package br.com.letscode.java.irdonation.contador;
 
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,9 +11,21 @@ import java.util.UUID;
 @Getter @Setter @ToString
 @Table(name = "contador")
 public class Contador {
+
     @Id
     @Column
-    private String cpf;
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
+
+    @Column
+    private String nome;
+
+    @Column
+    private String sobrenome;
+
+    @Column
+    private Long cpf;
 
     @Column
     private Long idCrc;
@@ -28,11 +36,6 @@ public class Contador {
     @Column
     private Long telefone;
 
-    @Column
-    private String nome;
-
-    @Column
-    private String sobrenome;
 
 }
 

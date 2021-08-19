@@ -1,9 +1,9 @@
 package br.com.letscode.java.irdonation.ong;
 
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,6 +14,14 @@ public class Ong {
 
     @Id
     @Column
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
+
+    @Column
+    private String razaoSocial;
+
+    @Column
     private Long cnpj;
 
     @Column
@@ -22,6 +30,4 @@ public class Ong {
     @Column
     private Long telefone;
 
-    @Column
-    private String razaoSocial;
 }

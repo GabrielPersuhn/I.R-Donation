@@ -9,27 +9,27 @@ import java.util.*;
 @Service
 public class ClienteService {
 
-    private final ClienteRepository repository;
+    private final ClienteRepository clienteRepository;
+
+    public List<Cliente> listAll() {
+        return this.clienteRepository.findAll();
+    }
 
     public LinkedList<Cliente> filaClientes() {
-        List<Cliente> yourList = this.repository.findAll();
+        List<Cliente> yourList = this.clienteRepository.findAll();
         return new LinkedList<>(yourList);
     }
 
-    public void removerFila() {
-        filaClientes().removeFirst();
-    }
-
-    public List<Cliente> listAll() {
-        return this.repository.findAll();
-    }
-
     public void cadastrarCliente(Cliente cliente) {
-        this.repository.save(cliente);
+        this.clienteRepository.save(cliente);
     }
 
-    public void deleteById(Integer id) {
-        this.repository.deleteById(id);
+    public void deleteByCpf(Long cpf) {
+        this.clienteRepository.deleteClienteByCpf(cpf);
+    }
+
+    public void deleteClienteByIdOrderByIdAsc() {
+        this.clienteRepository.deleteClienteByIdOrderByIdAsc();
     }
 
 }

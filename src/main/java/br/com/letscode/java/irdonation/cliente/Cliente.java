@@ -20,6 +20,12 @@ public class Cliente {
     private Integer id;
 
     @Column
+    private String nome;
+
+    @Column
+    private String sobrenome;
+
+    @Column
     private Long cpf;
 
     @Column
@@ -27,11 +33,5 @@ public class Cliente {
 
     @Column
     private Long telefone;
-
-    @Column
-    private String nome;
-
-    @Column
-    private String sobrenome;
 
 }

@@ -1,5 +1,6 @@
 package br.com.letscode.java.irdonation.cliente;
 
+import br.com.letscode.java.irdonation.contador.ContadorResponse;
 import br.com.letscode.java.irdonation.contador.ContadorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,9 @@ public class ClienteController {
     @GetMapping("/listarContadores")
     public ResponseEntity<?> listallContadores() {
         try {
+            var contadores = this.contadorService.listAll();
             return new ResponseEntity<>("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
-                    "Logo, um desses voluntários entrará em contato. \n" + this.contadorService.listAll(), HttpStatus.OK );
+                    "Logo, um desses voluntários entrará em contato. \n" + ContadorResponse.convert(contadores), HttpStatus.OK );
         }
         catch (Exception e) {
             return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.OK);
@@ -38,17 +40,27 @@ public class ClienteController {
         return new ResponseEntity<>(cliente + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    //TODO arrumar parametro para delete
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> remover(@PathVariable Integer id){
+    @DeleteMapping("/{cpf}")
+    public ResponseEntity<?> remover(@PathVariable Long cpf){
         try {
-            clienteService.deleteById(id);
-            return new ResponseEntity<>("CPF " + id + " removido com sucesso", HttpStatus.OK);
+            clienteService.deleteByCpf(cpf);
+            return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("CPF " + id + " não encontrado", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.OK);
         }
     }
+
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> removerId(@PathVariable Integer id){
+//        try {
+//            clienteService.deleteById(id);
+//            return new ResponseEntity<>("Cliente " + id + " removido com sucesso", HttpStatus.OK);
+//        }
+//        catch (Exception e) {
+//            return new ResponseEntity<>("Cliente " + id + " não encontrado", HttpStatus.OK);
+//        }
+//    }
 
 }
 

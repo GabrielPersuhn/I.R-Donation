@@ -20,7 +20,7 @@ public class ContadorService {
     }
 
     public void deleteByCpf(Long cpf) {
-        this.repository.deleteById(cpf);
+        this.repository.deleteContadorByCpf(cpf);
     }
 
 }

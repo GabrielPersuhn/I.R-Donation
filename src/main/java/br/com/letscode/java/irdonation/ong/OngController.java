@@ -16,7 +16,8 @@ public class OngController {
     @GetMapping("/listarTodos")
     public ResponseEntity<?> listarTodos() {
         try {
-            return new ResponseEntity<>(this.ongService.listAll(), HttpStatus.OK);
+            var ongList = this.ongService.listAll();
+            return new ResponseEntity<>(OngResponse.convert(ongList), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>("Não há ong's cadastradas", HttpStatus.OK);
@@ -37,6 +38,17 @@ public class OngController {
         }
         catch (Exception e) {
             return new ResponseEntity<>("CNPJ " + cnpj + " não encontrado", HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> removerId(@PathVariable Integer id){
+        try {
+            ongService.deleteById(id);
+            return new ResponseEntity<>("Ong " + id + " removida com sucesso", HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("Ong " + id + " não encontrado", HttpStatus.OK);
         }
     }
 

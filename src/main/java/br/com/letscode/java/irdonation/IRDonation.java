@@ -15,14 +15,12 @@ public class IRDonation {
 
 /*
 
-CONTADOR/USUARIO -> ATENDIMENTO
-//TODO GET listar usuário a ser atendido (fila)
+//TODO rever response nos metodos POST e DELETE
 
 //TODO segurança
 
 //TODO verificar todo o codigo
 
-//TODO request e response
  */
 
 
