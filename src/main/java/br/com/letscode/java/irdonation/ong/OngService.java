@@ -21,12 +21,12 @@ public class OngService {
         this.repository.save(ong);
     }
 
-    public void deleteById(Integer id) {
-        this.repository.deleteById(id);
+    public void deleteByCnpj(Long cnpj) {
+        this.repository.deleteByCnpj(cnpj);
     }
 
-    public Optional<Ong> findById(Integer id) {
-        return this.repository.findById(id);
+    public Optional<Ong> findByCnpj(Long cnpj) {
+        return this.repository.findByCnpj(cnpj);
     }
 
 }

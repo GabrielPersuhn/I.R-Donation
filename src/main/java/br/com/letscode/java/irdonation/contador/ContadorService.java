@@ -20,12 +20,12 @@ public class ContadorService {
         this.repository.save(contador);
     }
 
-    public void deleteById(Integer id) {
-        this.repository.deleteById(id);
+    public void deleteByCpf(Long cpf) {
+        this.repository.deleteContadorByCpf(cpf);
     }
 
-    public Optional<Contador> findById(Integer id) {
-        return this.repository.findById(id);
+    public Optional<Contador> findByCpf(Long cpf) {
+        return this.repository.findByCpf(cpf);
     }
 
 

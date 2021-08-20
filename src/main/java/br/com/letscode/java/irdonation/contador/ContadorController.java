@@ -45,11 +45,11 @@ public class ContadorController {
         return new ResponseEntity<>(contador + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> remover(@PathVariable Integer id){
+    @DeleteMapping("/{cpf}")
+    public ResponseEntity<?> remover(@PathVariable Long cpf){
         try {
-            var contador = this.contadorService.findById(id).get();
-            this.contadorService.deleteById(id);
+            var contador = this.contadorService.findByCpf(cpf).get();
+            this.contadorService.deleteByCpf(cpf);
             return new ResponseEntity<>(contador + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {

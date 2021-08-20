@@ -16,7 +16,12 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     @Query("delete from Cliente where id in (select min(id) from Cliente)")
     void deleteClienteByIdOrderByIdAsc();
 
-    Optional<Cliente> findById(Integer id);
+    @Modifying
+    @Transactional
+    @Query("delete from Cliente where cpf = ?1")
+    void deleteClienteByCpf(Long cpf);
+
+    Optional<Cliente> findByCpf(Long cpf);
 
 }
 

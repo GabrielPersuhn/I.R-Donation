@@ -43,11 +43,11 @@ public class ClienteController {
         return new ResponseEntity<>(cliente + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> remover(@PathVariable Integer id){
+    @DeleteMapping("/{cpf}")
+    public ResponseEntity<?> remover(@PathVariable Long cpf){
         try {
-            var cliente = this.clienteService.findById(id).get();
-            this.clienteService.deleteById(id);
+            var cliente = this.clienteService.findByCpf(cpf).get();
+            this.clienteService.deleteByCpf(cpf);
             return new ResponseEntity<>(cliente + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
