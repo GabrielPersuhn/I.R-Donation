@@ -31,7 +31,8 @@ public class ContadorController {
         try {
             Cliente cliente = clienteService.filaClientes().getFirst();
             clienteService.deleteClienteByIdOrderByIdAsc();
-            return new ResponseEntity<>(cliente +
+            return new ResponseEntity<>(cliente.getNome() + " " + cliente.getSobrenome() +
+                    ", e-mail: " + cliente.getEmail() + ", telefone: " + cliente.getTelefone() + ", " +
                     " está esperando pelo seu atendimento :)", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Os clientes cadastrados já foram atendidos. " +

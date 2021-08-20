@@ -35,6 +35,7 @@ public class UserController {
     public ResponseEntity<?> remover(@PathVariable String email) {
         try {
             var user = this.userRepository.findByEmail(email);
+            userRepository.deleteUserByEmail(email);
             return new ResponseEntity<>("Usuário removido com sucesso", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Usuário não encontrado", HttpStatus.OK);
