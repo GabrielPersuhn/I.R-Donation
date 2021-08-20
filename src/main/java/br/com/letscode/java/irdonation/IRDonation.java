@@ -16,9 +16,13 @@ public class IRDonation {
 
 /*
 
-//TODO segurança
+//TODO segurança -> decidir
 
-//TODO verificar todo o codigo
+//TODO atendimento -> exclui do banco de dados Cliente (não deveria)
+
+//TODO limpar todo o codigo
+
+// TODO apresentação
 
  */
 

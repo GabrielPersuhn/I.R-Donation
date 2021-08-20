@@ -30,7 +30,8 @@ public class ContadorController {
     @GetMapping("/atendimento")
     public ResponseEntity<?> listClientes()  {
         if (this.clienteService.filaClientes().isEmpty()) {
-            return new ResponseEntity<>("Não há clientes para ser atendido", HttpStatus.OK);
+            return new ResponseEntity<>("Os clientes cadastrados já foram atendidos. " +
+                    "Espere instantes para realizar nova consulta", HttpStatus.OK);
         }
 
         Cliente cliente = clienteService.filaClientes().getFirst();

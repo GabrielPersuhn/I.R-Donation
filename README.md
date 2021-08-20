@@ -21,7 +21,37 @@ nossos requisitos e apenas para fim de educação e estudo. Segue link do projet
 https://hackdash.org/projects/5894c5682c61d7392535cafa)*
 
 ### Funcionalidades
-EXPLICAR FUNCIONALIDADES
+Desenvolvemos uma API REST, ao qual irá armazenar (em Banco de Dados SQl) os dados sobre os clientes (usuários),
+contadores, e entidades não governamentais, além de conectar o usuário final com um contador disponível na plataforma.
+
+* Adicionar clientes
+
+Um cliente deve ter um nome, sobrenome, cpf, e informações para contato (email e telefone). 
+Um cliente também pode acessar a lista com todos os contadores e clientes cadastrados na plataforma para criar confiança com os voluntários do projeto.
+
+* Adicionar contadores
+
+Um contador deve ter um nome, sobrenome, cpf, registro único (CRC), e informações para contato (email e telefone).
+Um contador também pode acessar a lista com todos os contadores cadastrados na plataforma para criar confiança no projeto.
+
+* Realizar atendimento (contadores)
+
+Um contador deve entrar em contato com um cliente. Para isso, na url "/contador/atendimento", 
+forneceremos para o contador as informações de contato do próximo cliente cadastrado que ainda não foi atendido, 
+sendo seu papel entrar em contato com ele para prestar o serviço, seja por email ou telefone. 
+
+Mas atenção ! Quando apresentamos as informações do usuário, entendemos que você entrará em contato com ele, por isso,
+se a página for atualizada, forneceremos as informações do próximo cliente na fila para atendimento. 
+Fique atento e anote as informações do seu cliente antes de atualizar a página :) 
+
+* Listar entidades
+
+Os clientes poderão acessar a lista de todas as entidades cadastradas, para escolher a que você mais se identificar na hora da doação.
+
+Se você possuir uma indicação de entidade, envie um email para nós, (brunoaocosta@homtail.com e/ou gabrielpersuhn000@gmail.com)
+que entraremos em contato com ela com uma proposta de parceria.
+Assim, você ajuda o projejo a crescer cada vez mais :)
+
 
 ## 🛠 Tecnologias
 - Java 11

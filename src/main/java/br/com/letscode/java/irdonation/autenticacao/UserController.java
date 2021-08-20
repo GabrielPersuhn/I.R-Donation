@@ -30,7 +30,7 @@ public class UserController {
         String senhaCripto = new BCryptPasswordEncoder().encode(user.getPassword()); // salva a senha criptografada
         user.setPassWord(senhaCripto);
         this.userRepository.save(user);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>(user + " cadastrado com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{email}")
@@ -40,7 +40,7 @@ public class UserController {
             return new ResponseEntity<>(user + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("Email: " + email + " não encontrado", HttpStatus.OK);
+            return new ResponseEntity<>("User não encontrado", HttpStatus.OK);
         }
     }
 

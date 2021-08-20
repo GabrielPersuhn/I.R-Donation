@@ -28,8 +28,8 @@ public class User implements UserDetails {
 
     private String passWord;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Perfil> perfilList = new ArrayList<>();
+    //@ManyToMany(fetch = FetchType.EAGER)
+    //private List<Perfil> perfilList = new ArrayList<>();
 
     @Override
     @JsonIgnore
