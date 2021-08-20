@@ -24,8 +24,12 @@ public class OngController {
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrarOng(@RequestBody Ong ong) {
-        this.ongService.cadastrarOng(ong);
-        return new ResponseEntity<>(ong.getRazaoSocial() + " cadastrada com sucesso", HttpStatus.OK);
+        try {
+            this.ongService.cadastrarOng(ong);
+            return new ResponseEntity<>(ong.getRazaoSocial() + " cadastrada com sucesso", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(" Ong já cadastrada. ", HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{cnpj}")
@@ -33,7 +37,7 @@ public class OngController {
         try {
             var ong = this.ongService.findByCnpj(cnpj).get();
             this.ongService.deleteByCnpj(cnpj);
-            return new ResponseEntity<>(ong + " removida com sucesso", HttpStatus.OK);
+            return new ResponseEntity<>(ong.getRazaoSocial() + " foi removido com sucesso", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Ong não encontrada", HttpStatus.OK);
         }

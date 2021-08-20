@@ -28,21 +28,25 @@ public class ContadorController {
 
     @GetMapping("/atendimento")
     public ResponseEntity<?> listClientes() {
-        if (this.clienteService.filaClientes().isEmpty()) {
+        try {
+            Cliente cliente = clienteService.filaClientes().getFirst();
+            clienteService.deleteClienteByIdOrderByIdAsc();
+            return new ResponseEntity<>(cliente +
+                    " está esperando pelo seu atendimento :)", HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>("Os clientes cadastrados já foram atendidos. " +
                     "Espere instantes para realizar nova consulta", HttpStatus.OK);
         }
-
-        Cliente cliente = clienteService.filaClientes().getFirst();
-        clienteService.deleteClienteByIdOrderByIdAsc();
-        return new ResponseEntity<>(cliente +
-                " está esperando pelo seu atendimento :)", HttpStatus.OK);
     }
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarContador(@RequestBody Contador contador) {
-        this.contadorService.cadastrarContador(contador);
-        return new ResponseEntity<>(contador.getNome() + " " + contador.getSobrenome() + " foi cadastrado com sucesso", HttpStatus.OK);
+        try {
+            this.contadorService.cadastrarContador(contador);
+            return new ResponseEntity<>(contador.getNome() + " " + contador.getSobrenome() + " foi cadastrado com sucesso", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Contador já cadastrado", HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{cpf}")
@@ -50,9 +54,10 @@ public class ContadorController {
         try {
             var contador = this.contadorService.findByCpf(cpf).get();
             this.contadorService.deleteByCpf(cpf);
-            return new ResponseEntity<>(contador + " removido com sucesso", HttpStatus.OK);
+            return new ResponseEntity<>(contador.getNome() + " " + contador.getSobrenome() + " removido com sucesso", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Contador não encontrado", HttpStatus.OK);
         }
     }
+
 }

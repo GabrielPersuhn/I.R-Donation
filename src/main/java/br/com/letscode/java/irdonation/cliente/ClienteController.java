@@ -18,8 +18,12 @@ public class ClienteController {
 
     @GetMapping("/listarClientes")
     public ResponseEntity<?> listallClientes() {
-        var clientes = this.clienteService.listAll();
-        return new ResponseEntity<>(ClienteResponse.convert(clientes), HttpStatus.OK);
+        try {
+            var clientes = this.clienteService.listAll();
+            return new ResponseEntity<>(ClienteResponse.convert(clientes), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Não há clientes cadastrados", HttpStatus.OK);
+        }
     }
 
     @GetMapping("/listarContadores")
@@ -35,8 +39,12 @@ public class ClienteController {
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarCliente(@RequestBody Cliente cliente) {
-        this.clienteService.cadastrarCliente(cliente);
-        return new ResponseEntity<>(cliente.getNome() + " " + cliente.getSobrenome()+ " foi cadastrado com sucesso", HttpStatus.OK);
+        try {
+            this.clienteService.cadastrarCliente(cliente);
+            return new ResponseEntity<>(cliente.getNome() + " " + cliente.getSobrenome() + " foi cadastrado com sucesso", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Cliente já cadastrado", HttpStatus.OK);
+        }
     }
 
     @DeleteMapping("/{cpf}")
@@ -44,7 +52,7 @@ public class ClienteController {
         try {
             var cliente = this.clienteService.findByCpf(cpf).get();
             this.clienteService.deleteByCpf(cpf);
-            return new ResponseEntity<>(cliente + " removido com sucesso", HttpStatus.OK);
+            return new ResponseEntity<>(cliente.getNome() + " " + cliente.getSobrenome() + " foi removido com sucesso", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Cliente não encontrado", HttpStatus.OK);
         }
