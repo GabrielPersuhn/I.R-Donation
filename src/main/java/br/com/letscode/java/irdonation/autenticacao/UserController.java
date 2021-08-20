@@ -22,6 +22,7 @@ public class UserController {
         catch (Exception e) {
             return new ResponseEntity<>("Não há usuarios cadastrados", HttpStatus.NOT_FOUND);
         }
+
     }
 
     @PostMapping("/cadastrar")
