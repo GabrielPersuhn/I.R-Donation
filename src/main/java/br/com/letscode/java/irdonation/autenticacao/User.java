@@ -1,10 +1,7 @@
 package br.com.letscode.java.irdonation.autenticacao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -20,8 +17,10 @@ import java.util.Collection;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)

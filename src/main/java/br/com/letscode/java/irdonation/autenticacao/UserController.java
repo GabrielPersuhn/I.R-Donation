@@ -17,10 +17,10 @@ public class UserController {
     @GetMapping("/listarUsuarios")
     public ResponseEntity<?> list() {
         try {
-            return (ResponseEntity<?>) this.userRepository.findAll();
+            return new ResponseEntity<>(this.userRepository.findAll(), HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("Não há usuarios cadastrados", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Não há usuarios cadastrados", HttpStatus.OK);
         }
 
     }
@@ -36,11 +36,11 @@ public class UserController {
     @DeleteMapping("/{email}")
     public ResponseEntity<?> remover(@PathVariable String email){
         try {
-            userRepository.findByEmail(email);
-            return new ResponseEntity<>("Email: " + email + " removido com sucesso", HttpStatus.OK);
+            var user = this.userRepository.findByEmail(email);
+            return new ResponseEntity<>(user + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("Email: " + email + " não encontrado", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Email: " + email + " não encontrado", HttpStatus.OK);
         }
     }
 

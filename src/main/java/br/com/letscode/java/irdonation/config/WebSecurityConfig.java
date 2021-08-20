@@ -4,14 +4,13 @@ import br.com.letscode.java.irdonation.autenticacao.AutenticacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -35,6 +34,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .httpBasic();
 
+        /* .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/cursos").permitAll()
+                .antMatchers("/users").hasAnyAuthority("PROFESSOR", "ADMIN", "USER")
+                .antMatchers("/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/cursos/*").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); */
+
     }
 
     @Override
@@ -44,14 +53,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    @Override
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    protected AuthenticationManager authenticationManager() throws Exception{
+        return super.authenticationManager();
     }
 
-
-//    public static void main(String[] args) {
-//        System.out.println(new BCryptPasswordEncoder().encode("1234"));
-//    }
 }
 
