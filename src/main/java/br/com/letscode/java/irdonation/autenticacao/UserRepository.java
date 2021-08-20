@@ -1,4 +1,4 @@
-/* package br.com.letscode.java.irdonation.autenticacao;
+package br.com.letscode.java.irdonation.autenticacao;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,8 +8,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
 
-} */
+}

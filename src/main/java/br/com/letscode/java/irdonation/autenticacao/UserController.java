@@ -1,6 +1,7 @@
-/* package br.com.letscode.java.irdonation.autenticacao;
+package br.com.letscode.java.irdonation.autenticacao;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -42,6 +43,6 @@ public class UserController {
         }
     }
 
-} */
+}
 
 
