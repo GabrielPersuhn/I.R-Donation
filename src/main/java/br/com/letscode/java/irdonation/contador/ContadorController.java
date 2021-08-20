@@ -21,14 +21,13 @@ public class ContadorController {
         try {
             var contadores = this.contadorService.listAll();
             return new ResponseEntity<>(ContadorResponse.convert(contadores), HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.OK);
         }
     }
 
     @GetMapping("/atendimento")
-    public ResponseEntity<?> listClientes()  {
+    public ResponseEntity<?> listClientes() {
         if (this.clienteService.filaClientes().isEmpty()) {
             return new ResponseEntity<>("Os clientes cadastrados já foram atendidos. " +
                     "Espere instantes para realizar nova consulta", HttpStatus.OK);
@@ -47,15 +46,13 @@ public class ContadorController {
     }
 
     @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> remover(@PathVariable Long cpf){
+    public ResponseEntity<?> remover(@PathVariable Long cpf) {
         try {
             var contador = this.contadorService.findByCpf(cpf).get();
             this.contadorService.deleteByCpf(cpf);
             return new ResponseEntity<>(contador + " removido com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Contador não encontrado", HttpStatus.OK);
         }
     }
-
 }

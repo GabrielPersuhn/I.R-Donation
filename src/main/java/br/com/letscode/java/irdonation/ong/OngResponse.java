@@ -21,7 +21,7 @@ public class OngResponse {
         this.telefone = ong.getTelefone();
     }
 
-    public static List<OngResponse> convert(List<Ong> ongs){
+    public static List<OngResponse> convert(List<Ong> ongs) {
         return ongs.stream().map(OngResponse::new).collect(Collectors.toList());
     }
 

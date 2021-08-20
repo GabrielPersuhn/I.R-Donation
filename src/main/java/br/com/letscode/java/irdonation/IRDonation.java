@@ -2,8 +2,6 @@ package br.com.letscode.java.irdonation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 
 @SpringBootApplication
 public class IRDonation {
@@ -13,17 +11,5 @@ public class IRDonation {
     }
 
 }
-
-/*
-
-//TODO segurança -> decidir
-
-//TODO atendimento -> exclui do banco de dados Cliente (não deveria)
-
-//TODO limpar todo o codigo
-
-// TODO apresentação
-
- */
 
 

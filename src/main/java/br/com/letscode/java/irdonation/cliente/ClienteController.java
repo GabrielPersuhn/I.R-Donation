@@ -7,9 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/cliente")
@@ -30,9 +27,8 @@ public class ClienteController {
         try {
             var contadores = this.contadorService.listAll();
             return new ResponseEntity<>("A seguir listamos todos os contadores disponíveis na nossa plataforma. " +
-                    "Logo, um desses voluntários entrará em contato. \n" + ContadorResponse.convert(contadores), HttpStatus.OK );
-        }
-        catch (Exception e) {
+                    "Logo, um desses voluntários entrará em contato. \n" + ContadorResponse.convert(contadores), HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>("Não há contadores cadastrados", HttpStatus.OK);
         }
     }
@@ -44,16 +40,14 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> remover(@PathVariable Long cpf){
+    public ResponseEntity<?> remover(@PathVariable Long cpf) {
         try {
             var cliente = this.clienteService.findByCpf(cpf).get();
             this.clienteService.deleteByCpf(cpf);
             return new ResponseEntity<>(cliente + " removido com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Cliente não encontrado", HttpStatus.OK);
         }
     }
-
 }
 

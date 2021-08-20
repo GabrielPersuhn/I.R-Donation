@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//@PreAuthorize("hasRole('ADMIN')")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/ongs")
@@ -18,8 +17,7 @@ public class OngController {
         try {
             var ongList = this.ongService.listAll();
             return new ResponseEntity<>(OngResponse.convert(ongList), HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Não há ong's cadastradas", HttpStatus.OK);
         }
     }
@@ -31,13 +29,12 @@ public class OngController {
     }
 
     @DeleteMapping("/{cnpj}")
-    public ResponseEntity<?> remover(@PathVariable Long cnpj){
+    public ResponseEntity<?> remover(@PathVariable Long cnpj) {
         try {
             var ong = this.ongService.findByCnpj(cnpj).get();
             this.ongService.deleteByCnpj(cnpj);
             return new ResponseEntity<>(ong + " removida com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Ong não encontrada", HttpStatus.OK);
         }
     }

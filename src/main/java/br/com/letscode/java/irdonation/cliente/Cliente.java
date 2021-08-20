@@ -8,7 +8,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @ToString
 @Table(name = "cliente")
 public class Cliente {
@@ -33,8 +34,5 @@ public class Cliente {
 
     @Column
     private Long telefone;
-
-    public Cliente(String aristóteles, String bartolomeu, long l, String s, long l1) {
-    }
 
 }

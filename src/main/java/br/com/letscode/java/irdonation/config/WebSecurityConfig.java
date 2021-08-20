@@ -23,43 +23,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/cliente/*").permitAll()
-                .antMatchers(HttpMethod.POST,"/contador/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/contador/listarContadores").permitAll()
-                .antMatchers(HttpMethod.GET,"/cliente/listarClientes").permitAll()
-                .antMatchers(HttpMethod.GET,"/ongs/*").permitAll()
-                .antMatchers(HttpMethod.POST,"/users/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/cliente/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/contador/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/contador/listarContadores").permitAll()
+                .antMatchers(HttpMethod.GET, "/cliente/listarClientes").permitAll()
+                .antMatchers(HttpMethod.GET, "/ongs/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/users/*").permitAll()
                 .anyRequest().authenticated()
-
                 .and()
                 .formLogin()
                 .permitAll()
                 .and()
                 .csrf().disable()
                 .httpBasic();
-
-        /* .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/cursos").permitAll()
-                .antMatchers("/users").hasAnyAuthority("PROFESSOR", "ADMIN", "USER")
-                .antMatchers("/login").permitAll()
-                .antMatchers(HttpMethod.GET, "/cursos/*").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); */
-
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(autenticacaoService)
                 .passwordEncoder(new BCryptPasswordEncoder());
-
     }
 
     @Override
     @Bean
-    protected AuthenticationManager authenticationManager() throws Exception{
+    protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
 

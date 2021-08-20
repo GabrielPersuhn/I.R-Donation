@@ -6,13 +6,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @ToString
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
@@ -23,13 +22,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true) // nao permite dois usuarios com mesmo email
+    @Column(unique = true)
     private String email;
 
     private String passWord;
-
-    //@ManyToMany(fetch = FetchType.EAGER)
-    //private List<Perfil> perfilList = new ArrayList<>();
 
     @Override
     @JsonIgnore

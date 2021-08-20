@@ -2,7 +2,6 @@ package br.com.letscode.java.irdonation.cliente;
 
 import lombok.Getter;
 
-import javax.persistence.Column;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +23,7 @@ public class ClienteResponse {
         this.telefone = cliente.getTelefone();
     }
 
-    public static List<ClienteResponse> convert(List<Cliente> clientes){
+    public static List<ClienteResponse> convert(List<Cliente> clientes) {
         return clientes.stream().map(ClienteResponse::new).collect(Collectors.toList());
     }
 

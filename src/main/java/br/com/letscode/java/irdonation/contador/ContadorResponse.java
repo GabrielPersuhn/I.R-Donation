@@ -26,5 +26,4 @@ public class ContadorResponse {
     public static List<ContadorResponse> convert(List<Contador> contadors){
         return contadors.stream().map(ContadorResponse::new).collect(Collectors.toList());
     }
-
 }

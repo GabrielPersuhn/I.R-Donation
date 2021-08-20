@@ -18,8 +18,7 @@ public class UserController {
     public ResponseEntity<?> list() {
         try {
             return new ResponseEntity<>(this.userRepository.findAll(), HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("Não há usuarios cadastrados", HttpStatus.OK);
         }
 
@@ -27,19 +26,18 @@ public class UserController {
 
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarUser(@RequestBody User user) {
-        String senhaCripto = new BCryptPasswordEncoder().encode(user.getPassword()); // salva a senha criptografada
+        String senhaCripto = new BCryptPasswordEncoder().encode(user.getPassword());
         user.setPassWord(senhaCripto);
         this.userRepository.save(user);
         return new ResponseEntity<>(user + " cadastrado com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{email}")
-    public ResponseEntity<?> remover(@PathVariable String email){
+    public ResponseEntity<?> remover(@PathVariable String email) {
         try {
             var user = this.userRepository.findByEmail(email);
             return new ResponseEntity<>(user + " removido com sucesso", HttpStatus.OK);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<>("User não encontrado", HttpStatus.OK);
         }
     }
