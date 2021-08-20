@@ -21,7 +21,7 @@ public class Ong {
     @Column
     private String razaoSocial;
 
-    @Column
+    @Column(unique = true)
     private Long cnpj;
 
     @Column

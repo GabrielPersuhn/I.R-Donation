@@ -45,14 +45,15 @@ public class ContadorController {
         return new ResponseEntity<>(contador + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> remover(@PathVariable Long cpf){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Integer id){
         try {
-            this.contadorService.deleteByCpf(cpf);
-            return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
+            var contador = this.contadorService.findById(id).get();
+            this.contadorService.deleteById(id);
+            return new ResponseEntity<>(contador + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.OK);
+            return new ResponseEntity<>("Contador não encontrado", HttpStatus.OK);
         }
     }
 

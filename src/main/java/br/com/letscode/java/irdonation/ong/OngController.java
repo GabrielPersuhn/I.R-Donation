@@ -30,14 +30,15 @@ public class OngController {
         return new ResponseEntity<>(ong + " cadastrada com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{cnpj}")
-    public ResponseEntity<?> remover(@PathVariable Long cnpj){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Integer id){
         try {
-            ongService.deleteByCnpj(cnpj);
-            return new ResponseEntity<>("CNPJ " + cnpj + " removido com sucesso", HttpStatus.OK);
+            var ong = this.ongService.findById(id).get();
+            this.ongService.deleteById(id);
+            return new ResponseEntity<>(ong + " removida com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("CNPJ " + cnpj + " não encontrado", HttpStatus.OK);
+            return new ResponseEntity<>("Ong não encontrada", HttpStatus.OK);
         }
     }
 

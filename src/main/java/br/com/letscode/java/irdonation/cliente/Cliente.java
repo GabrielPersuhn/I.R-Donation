@@ -25,7 +25,7 @@ public class Cliente {
     @Column
     private String sobrenome;
 
-    @Column
+    @Column(unique = true)
     private Long cpf;
 
     @Column
@@ -33,5 +33,8 @@ public class Cliente {
 
     @Column
     private Long telefone;
+
+    public Cliente(String aristóteles, String bartolomeu, long l, String s, long l1) {
+    }
 
 }

@@ -43,14 +43,15 @@ public class ClienteController {
         return new ResponseEntity<>(cliente + " cadastrado com sucesso", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{cpf}")
-    public ResponseEntity<?> remover(@PathVariable Long cpf){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Integer id){
         try {
-            clienteService.deleteByCpf(cpf);
-            return new ResponseEntity<>("CPF " + cpf + " removido com sucesso", HttpStatus.OK);
+            var cliente = this.clienteService.findById(id).get();
+            this.clienteService.deleteById(id);
+            return new ResponseEntity<>(cliente + " removido com sucesso", HttpStatus.OK);
         }
         catch (Exception e) {
-            return new ResponseEntity<>("CPF " + cpf + " não encontrado", HttpStatus.OK);
+            return new ResponseEntity<>("Cliente não encontrado", HttpStatus.OK);
         }
     }
 

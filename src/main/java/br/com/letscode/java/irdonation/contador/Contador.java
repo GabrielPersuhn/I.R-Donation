@@ -24,7 +24,7 @@ public class Contador {
     @Column
     private String sobrenome;
 
-    @Column
+    @Column(unique = true)
     private Long cpf;
 
     @Column

@@ -24,12 +24,16 @@ public class ClienteService {
         this.clienteRepository.save(cliente);
     }
 
-    public void deleteByCpf(Long cpf) {
-        this.clienteRepository.deleteClienteByCpf(cpf);
+    public void deleteById(Integer id) {
+        this.clienteRepository.deleteById(id);
     }
 
     public void deleteClienteByIdOrderByIdAsc() {
         this.clienteRepository.deleteClienteByIdOrderByIdAsc();
+    }
+
+    public Optional<Cliente> findById(Integer id) {
+        return this.clienteRepository.findById(id);
     }
 
 }
