@@ -1,6 +1,5 @@
 package br.com.letscode.java.irdonation.autenticacao;
 
-import br.com.letscode.java.irdonation.autenticacao.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
