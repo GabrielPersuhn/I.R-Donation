@@ -13,7 +13,7 @@ com a condição de que seja doada parte do imposto devido (até 6%),
 e disseminar essa informação para a população em geral.
 
 Esse projeto visa atender ao objetivos da *ONU*, através de doações para entidades especializadas em cada aspecto da sociedade, como:
-Saúde, Educação, Desigualdade e meio Ambiente.
+Pobreza, Fome, Saúde, Educação e Desigualdade.
 
 
 *(Esse projeto foi inspirado na ideia de outro já existente, sendo adaptado para
@@ -21,7 +21,7 @@ nossos requisitos e apenas para fim de educação e estudo. Segue link do projet
 https://hackdash.org/projects/5894c5682c61d7392535cafa)*
 
 ### Funcionalidades
-Desenvolvemos uma API REST, ao qual irá armazenar (em Banco de Dados SQl) os dados sobre os clientes (usuários),
+Desenvolvemos uma API REST, ao qual irá armazenar (em Banco de Dados SQL) os dados sobre os clientes (usuários),
 contadores, e entidades não governamentais, além de conectar o usuário final com um contador disponível na plataforma.
 
 * Adicionar clientes

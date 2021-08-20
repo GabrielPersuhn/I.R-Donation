@@ -19,7 +19,7 @@ public class UserController {
         try {
             return new ResponseEntity<>(this.userRepository.findAll(), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Não há usuarios cadastrados", HttpStatus.OK);
+            return new ResponseEntity<>("Não há usuários cadastrados", HttpStatus.OK);
         }
 
     }
@@ -29,16 +29,16 @@ public class UserController {
         String senhaCripto = new BCryptPasswordEncoder().encode(user.getPassword());
         user.setPassWord(senhaCripto);
         this.userRepository.save(user);
-        return new ResponseEntity<>(user + " cadastrado com sucesso", HttpStatus.OK);
+        return new ResponseEntity<>("Usuário cadastrado com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{email}")
     public ResponseEntity<?> remover(@PathVariable String email) {
         try {
             var user = this.userRepository.findByEmail(email);
-            return new ResponseEntity<>(user + " removido com sucesso", HttpStatus.OK);
+            return new ResponseEntity<>("Usuário removido com sucesso", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("User não encontrado", HttpStatus.OK);
+            return new ResponseEntity<>("Usuário não encontrado", HttpStatus.OK);
         }
     }
 

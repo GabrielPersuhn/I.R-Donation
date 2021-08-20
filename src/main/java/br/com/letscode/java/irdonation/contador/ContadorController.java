@@ -42,7 +42,7 @@ public class ContadorController {
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarContador(@RequestBody Contador contador) {
         this.contadorService.cadastrarContador(contador);
-        return new ResponseEntity<>(contador + " cadastrado com sucesso", HttpStatus.OK);
+        return new ResponseEntity<>(contador.getNome() + " " + contador.getSobrenome() + " foi cadastrado com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{cpf}")

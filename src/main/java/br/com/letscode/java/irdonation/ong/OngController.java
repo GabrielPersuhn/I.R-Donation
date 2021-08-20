@@ -25,7 +25,7 @@ public class OngController {
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrarOng(@RequestBody Ong ong) {
         this.ongService.cadastrarOng(ong);
-        return new ResponseEntity<>(ong + " cadastrada com sucesso", HttpStatus.OK);
+        return new ResponseEntity<>(ong.getRazaoSocial() + " cadastrada com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{cnpj}")

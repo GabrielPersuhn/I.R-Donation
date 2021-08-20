@@ -36,7 +36,7 @@ public class ClienteController {
     @PostMapping("/cadastrar")
     public ResponseEntity<?> criarCliente(@RequestBody Cliente cliente) {
         this.clienteService.cadastrarCliente(cliente);
-        return new ResponseEntity<>(cliente + " cadastrado com sucesso", HttpStatus.OK);
+        return new ResponseEntity<>(cliente.getNome() + " " + cliente.getSobrenome()+ " foi cadastrado com sucesso", HttpStatus.OK);
     }
 
     @DeleteMapping("/{cpf}")
