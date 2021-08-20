@@ -1,5 +1,6 @@
-/* package br.com.letscode.java.irdonation.autenticacao;
+package br.com.letscode.java.irdonation.autenticacao;
 
+import br.com.letscode.java.irdonation.autenticacao.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,4 +19,4 @@ public class AutenticacaoService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(email + " não encontrado")); // lança a exceção
     }
 
-} */
+}
